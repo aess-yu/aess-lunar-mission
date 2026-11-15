@@ -90,6 +90,61 @@ for(const id of ['chatInput','chatInput2'])document.getElementById(id).addEventL
 document.getElementById('audioBtn').onclick=()=>{const a=document.getElementById('introAudio');a.play().catch(()=>alert('Add a licensed audio file at assets/armstrong.mp3.'))};
 init();if(location.hash&&document.getElementById(location.hash.slice(1)))go(location.hash.slice(1));
 </script>
+
+
+/* Realistic lunar cinematic background */
+
+#missionIntro {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 5, 12, 0.15),
+      rgba(0, 5, 12, 0.05)
+    ),
+    url("./lunar-background.jpg")
+      center center / cover no-repeat;
+
+  gap: 0;
+  justify-content: flex-start;
+  padding-top: clamp(55px, 10vh, 110px);
+}
+
+/* Remove old CSS moon and stars */
+#missionIntro::before,
+#missionIntro::after {
+  display: none;
+}
+
+/* Title */
+#missionIntro h1 {
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(55px, 9vw, 125px);
+  line-height: 1;
+  letter-spacing: 2px;
+  color: #48E5D2;
+  margin: 0 0 12px;
+  animation: titleReveal 1.8s ease both;
+}
+
+/* Slogan */
+#missionIntro p {
+  font-size: clamp(17px, 2.2vw, 30px);
+  font-weight: 800;
+  letter-spacing: 5px;
+  line-height: 1.9;
+  margin: 0 0 28px;
+  color: white;
+  animation: fadeUp 1.5s ease .8s both;
+}
+
+/* Enter button */
+#enterMission {
+  font-size: 15px;
+  padding: 16px 45px;
+  letter-spacing: 3px;
+  animation: fadeUp 1.5s ease 1.4s both;
+}
+
   
 <style>
   #missionIntro {
