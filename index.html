@@ -25,7 +25,13 @@ nav{background:#02070cf5;border-bottom:1px solid #184354;box-shadow:0 4px 35px #
 .scene{border-radius:2px;background:radial-gradient(ellipse at 50% 110%,#548b99,#173e53 42%,#04131e 43%)}
 th{background:#0c3444;color:#67f3e0}.footer{border-color:#17475b;letter-spacing:1px}
 @media(max-width:700px){.hero h1{font-size:clamp(54px,12vw,86px)}.hero:before{letter-spacing:-10px}.brand{font-size:23px}}
-.brand:before{content:none!important}.brand-logo{display:block;width:clamp(130px,17vw,190px);height:auto;max-height:64px;object-fit:contain}.brand{flex-shrink:0}@media(max-width:700px){.brand-logo{width:125px;max-height:54px}}
+.brand:before{content:none!important}.brand-logo {
+    display: block;
+    width: 240px;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+}.brand{flex-shrink:0}@media(max-width:700px){.brand-logo{width:125px;max-height:54px}}
 
 /* AESS YU cinematic landing + crew pass styling */
 .hero{min-height:calc(100vh - 91px);isolation:isolate;background:radial-gradient(ellipse at 75% 55%,#0a4250 0%,#061727 35%,#010305 77%)}
@@ -70,7 +76,7 @@ body.intro-open{overflow:hidden}
 <nav>
   <div class="brand" aria-label="IEEE AESS Yarmouk University"><img src="assets/aess-yu-logo.png" alt="AESS Yarmouk University logo" class="brand-logo"></div><div class="navlinks" id="navlinks"><button data-page="home" class="active">⌂ Home</button><button data-page="control">◉ Mission Control</button><button data-page="gallery">◈ 3D Gallery</button><button data-page="compare">▤ Comparison</button><button data-page="assistant">✦ AI Assistant</button><button data-page="report">▧ Report</button><button data-page="about">◎ About Us</button><button data-page="edit">✎ Edit Content</button></div></nav>
 <main><div id="home" class="workspace active"><header class="hero"><div class="starfield" aria-hidden="true"></div><div class="moon"></div><div class="hero-content"><div class="eyebrow"><span class="live-dot"></span> IEEE AESS YU  /  NASA SPACE APPS CHALLENGE</div><h1>ONE MAN'S<br><span>MISSION.</span><br>ONE CREW.<br>NO LIMITS.</h1><p>Explore the Moon's south pole. Compare candidate landing sites, understand solar illumination and Earth visibility, and make informed mission decisions.</p><div class="hero-actions"><button class="btn primary" onclick="go('control')">ENTER MISSION CONTROL ↗</button></div></div></header><section class="section"><div class="eyebrow">THE PEOPLE BEHIND THE MISSION</div><h2>MEET THE CREW</h2><p class="lead">Six explorers. One mission. Representing IEEE Aerospace and Electronic Systems Society at Yarmouk University. BUILD / CONNECT / IMPACT.</p><div class="grid team" id="teamHome"></div><p class="crew-note">CREW PROFILES · Replace placeholders with your team names and roles</p></section><section class="section"><div class="panel"><div class="eyebrow">MISSION OBJECTIVE</div><h2>Explore. Evaluate. Decide.</h2><p class="lead">Our AESS lunar browser is a prototype mission-planning interface for comparing lunar south-pole sites. Simulation, real ephemeris calculations and AI integration can be connected as the project develops.</p><button class="btn primary" onclick="go('compare')">Explore comparison →</button></div></section></div>
-<section id="control" class="section workspace"><div class="eyebrow">LIVE WORKSPACE · PROTOTYPE</div><h2>Mission Control</h2><p class="lead">Choose a candidate site and inspect its location. The center panel is a visual placeholder for your CesiumJS simulation.</p><div class="dashboard"><div class="panel"><h3>⌖ Landing Site Intelligence</h3><div id="sites"></div><div id="siteDetails" class="muted" style="line-height:1.8;margin-top:20px"></div></div><div class="panel"><h3>◉ Lunar Simulation <span style="float:right;color:#70d6ac;font-size:12px">● DEMO MODE</span></h3><div id="cesiumContainer" class="sim"><div class="orbit"></div><div class="orb"></div><div class="pin">⌖</div><div class="status">SIMULATION SLOT · ADD YOUR CESIUM VIEW OR URL</div></div><div class="stats"><div class="stat">Selected site: <b id="selectedSite">Site Alpha</b></div><div class="stat">Solar status: <b>Awaiting data</b></div><div class="stat">DTE: <b>Awaiting data</b></div></div></div><div class="panel"><h3>✦ Mission Chat</h3><div class="chatlog" id="chatlog"><div class="bubble">Mission assistant demo ready. Ask about solar power, Earth visibility, or site selection.</div></div><div class="chatbox"><input id="chatInput" placeholder="Ask mission assistant..."><button onclick="chat()">➤</button></div><p class="muted" style="font-size:11px">Demo responses only — no AI model connected yet.</p></div></div></section>
+<section id="control" class="section workspace"><div class="eyebrow">LIVE WORKSPACE · PROTOTYPE</div><h2>Mission Control</h2><p class="lead">Choose a candidate site and inspect its location. The center panel is a visual placeholder for your CesiumJS simulation.</p><div class="dashboard"><div class="panel"><h3>⌖ Landing Site Intelligence</h3><div id="sites"></div><div id="siteDetails" class="muted" style="line-height:1.8;margin-top:20px"></div></div><div class="panel"><h3>◉ Lunar Simulation <span style="float:right;color:#70d6ac;font-size:12px">● DEMO MODE</span></h3><div id="cesiumContainer" class="sim"><div class="orbit"></div><div class="orb"></div><div class="pin">⌖</div><div class="status">SIMULATION SLOT · ADD YOUR CESIUM VIEW OR URL</div></div><div class="stats"><div class="stat">Selected site: <b id="selectedSite">Site Alpha</b></div><div class="stat">Solar status: <b>Awaiting data</b></div><div class="stat">DTE: <b>Awaiting data</b></div></div></div><div class="panel"><h3>✦ Mission Chat</h3><div class="chatlog" id="chatlog"><div class="bubble">Mission assistant demo ready. Ask about solar power, Earth visibility, or site selection.</div></div><div class="chatbox"><input id="chatInput" placeholder="Ask mission assistant..."><button onclick="chat()">➤</button></div><p class="muted" style="font-size:11px">LUNA AI • Powered by Gemini </p></div></div></section>
 <section id="gallery" class="section workspace"><div class="eyebrow">LUNAR SURFACE EXPLORATION</div><h2>3D Landing Site Gallery</h2><p class="lead">Preview slots for your three selected sites. Replace these visuals with actual Cesium terrain views or GLB models.</p><div class="grid gallery" id="galleryCards"></div></section>
 <section id="compare" class="section workspace"><div class="eyebrow">MISSION PLANNING</div><h2>Landing Site Comparison</h2><p class="lead">Compare verified site metrics. Empty cells indicate data not yet supplied.</p><div class="panel tablewrap"><table id="comparisonTable"></table></div><p class="muted">Only publish results backed by consistent time windows, horizon models and reference frames.</p></section>
 <section id="assistant" class="section workspace"><div class="eyebrow">MISSION SUPPORT</div><h2>AI Mission Assistant</h2><div class="panel" style="max-width:850px"><p class="lead">Ask about lunar south-pole mission-planning concepts. This is a front-end demo; connect a secure backend for actual AI responses.</p><div class="chatlog" id="chatlog2" style="height:320px"><div class="bubble">Welcome, mission planner. How can I help?</div></div><div class="chatbox"><input id="chatInput2" placeholder="e.g. Why does Sun elevation matter?"><button onclick="chat(true)">Send</button></div></div></section>
@@ -98,7 +104,70 @@ function loadEditor(){document.getElementById('jsonEditor').value=JSON.stringify
 function previewEditor(){try{const d=JSON.parse(document.getElementById('jsonEditor').value);if(!Array.isArray(d.Team)||!Array.isArray(d.Landing_Sites))throw Error('Team and Landing_Sites must be arrays');applyData(d);document.getElementById('editStatus').textContent='Preview applied. Download data.json to publish.'}catch(e){document.getElementById('editStatus').textContent='Invalid JSON: '+e.message}}
 function downloadData(){try{const obj=JSON.parse(document.getElementById('jsonEditor').value);const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}catch(e){document.getElementById('editStatus').textContent='Fix JSON before downloading: '+e.message}}
 function reply(q){let t=q.toLowerCase();if(t.includes('sun')||t.includes('solar')||t.includes('power'))return 'Solar availability depends on Sun elevation, local terrain horizon and the solar-array configuration. Add validated illumination windows to compare sites.';if(t.includes('earth')||t.includes('communication')||t.includes('dte'))return 'Direct-to-Earth visibility depends on Earth elevation above the local terrain horizon and the observation time.';if(t.includes('site')||t.includes('best'))return 'Do not rank sites without validated Sun/Earth visibility, terrain horizons and mission requirements.';return 'This is a scripted demo, not connected AI. Connect a secure backend for detailed answers.'}
-function chat(standalone=false){const inp=document.getElementById(standalone?'chatInput2':'chatInput'),log=document.getElementById(standalone?'chatlog2':'chatlog');const q=inp.value.trim();if(!q)return;for(const [txt,cls] of [[q,'user'],[reply(q),'']]){const el=document.createElement('div');el.className='bubble '+cls;el.textContent=txt;log.appendChild(el)}inp.value='';log.scrollTop=log.scrollHeight}
+
+
+async function chat(standalone = false) {
+  const inp = document.getElementById(
+    standalone ? 'chatInput2' : 'chatInput'
+  );
+
+  const log = document.getElementById(
+    standalone ? 'chatlog2' : 'chatlog'
+  );
+
+  if (!inp || !log) return;
+
+  const q = inp.value.trim();
+  if (!q) return;
+
+  function addBubble(message, cls = '') {
+    const el = document.createElement('div');
+    el.className = 'bubble ' + cls;
+    el.textContent = message;
+    log.appendChild(el);
+    log.scrollTop = log.scrollHeight;
+    return el;
+  }
+
+  addBubble(q, 'user');
+  inp.value = '';
+
+  const loading = addBubble('LUNA AI is thinking...');
+
+  try {
+    const response = await fetch(
+      'https://aess-luna-ai.darweshnoura.workers.dev/',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: q })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'AI request failed');
+    }
+
+    loading.textContent =
+      data.reply ||
+      data.response ||
+      data.answer ||
+      data.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') ||
+      'LUNA AI returned an empty response.';
+
+  } catch (error) {
+    console.error('LUNA AI error:', error);
+    loading.textContent =
+      'Sorry, LUNA AI is temporarily unavailable. Please try again.';
+  }
+
+  log.scrollTop = log.scrollHeight;
+}
+
 for(const id of ['chatInput','chatInput2'])document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')chat(id==='chatInput2')});
 
 init();if(location.hash&&document.getElementById(location.hash.slice(1)))go(location.hash.slice(1));
