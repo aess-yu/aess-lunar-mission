@@ -49,9 +49,6 @@ th{background:#0c3444;color:#67f3e0}.footer{border-color:#17475b;letter-spacing:
 </style></head><body><nav><div class="brand" aria-label="IEEE AESS Yarmouk University"><img src="assets/aess-yu-logo.png" alt="AESS Yarmouk University logo" class="brand-logo"></div><div class="navlinks" id="navlinks"><button data-page="home" class="active">⌂ Home</button><button data-page="control">◉ Mission Control</button><button data-page="gallery">◈ 3D Gallery</button><button data-page="compare">▤ Comparison</button><button data-page="assistant">✦ AI Assistant</button><button data-page="report">▧ Report</button><button data-page="about">◎ About Us</button><button data-page="edit">✎ Edit Content</button></div></nav>
 <main><div id="home" class="workspace active"><header class="hero"><div class="starfield" aria-hidden="true"></div><div class="moon"></div><div class="hero-content">
 
-<audio id="armstrongAudio" src="./armstrong.mp3"></audio>
-
-<button type="button"
   onclick="document.getElementById('armstrongAudio').play()"
   style="background:#48E5D2;color:#020508;
   padding:14px 24px;border:0;border-radius:6px;
@@ -124,11 +121,64 @@ init();if(location.hash&&document.getElementById(location.hash.slice(1)))go(loca
     cursor: pointer;
     letter-spacing: 2px;
   }
+  
+/* Cinematic intro typography */
+
+#missionIntro {
+  gap: 0;
+  padding: 30px 20px;
+}
+
+#missionIntro h1 {
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(58px, 10vw, 130px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 2px;
+  color: #48E5D2;
+  margin: 0 0 55px;
+  text-transform: uppercase;
+}
+
+#missionIntro p {
+  font-family: Arial, sans-serif;
+  font-size: clamp(13px, 1.5vw, 19px);
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 2;
+  color: #FFFFFF;
+  max-width: 750px;
+  margin: 0 0 55px;
+}
+
+#enterMission {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  letter-spacing: 3px;
+  padding: 20px 55px;
+  background: #48E5D2;
+  color: #020810;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#enterMission:hover {
+  background: #FFFFFF;
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px #48E5D280;
+}
+
 </style>
 
 <div id="missionIntro">
   <h1>LUNAR MISSION</h1>
-  <p>ONE MAN'S MISSION. ONE CREW. NO LIMITS.</p>
+  <p>
+  ONE MAN'S MISSION.
+  <span style="display:block">
+    ONE CREW. NO LIMITS.
+  </span>
+</p>
   <button id="enterMission" type="button">
     ▶ ENTER MISSION
   </button>
