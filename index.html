@@ -48,9 +48,8 @@ th{background:#0c3444;color:#67f3e0}.footer{border-color:#17475b;letter-spacing:
 .edit-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}#jsonEditor{width:100%;min-height:410px;padding:20px;border:1px solid #284d64;background:#03111d;color:#d8fffb;border-radius:12px;font:13px/1.5 Consolas,monospace;resize:vertical}.report-section{padding:14px 0;border-bottom:1px solid #1d3d50}.report-section p{white-space:pre-wrap;line-height:1.7}.scene model-viewer{display:block}.gallery-moon{font-size:100px;color:#58e6d4}#cesiumContainer iframe{display:block}.navlinks{flex-wrap:wrap}
 </style></head><body><nav><div class="brand" aria-label="IEEE AESS Yarmouk University"><img src="assets/aess-yu-logo.png" alt="AESS Yarmouk University logo" class="brand-logo"></div><div class="navlinks" id="navlinks"><button data-page="home" class="active">⌂ Home</button><button data-page="control">◉ Mission Control</button><button data-page="gallery">◈ 3D Gallery</button><button data-page="compare">▤ Comparison</button><button data-page="assistant">✦ AI Assistant</button><button data-page="report">▧ Report</button><button data-page="about">◎ About Us</button><button data-page="edit">✎ Edit Content</button></div></nav>
 <main><div id="home" class="workspace active"><header class="hero"><div class="starfield" aria-hidden="true"></div><div class="moon"></div><div class="hero-content">
-<audio id="armstrong.mp3"
-       src="./590331main_ringtone_smallStep.mp3">
-</audio>
+
+<audio id="armstrongAudio" src="./armstrong.mp3"></audio>
 
 <button type="button"
   onclick="document.getElementById('armstrongAudio').play()"
@@ -60,17 +59,8 @@ th{background:#0c3444;color:#67f3e0}.footer{border-color:#17475b;letter-spacing:
   ▶ PLAY ARMSTRONG AUDIO
 </button>
 
-<audio id="armstrongAudio"
-       src="./590331main_ringtone_smallStep.mp3">
-</audio>
 
-<button type="button"
-  onclick="document.getElementById('armstrongAudio').play()"
-  style="background:#48E5D2;color:#020508;
-  padding:14px 24px;border:0;border-radius:6px;
-  cursor:pointer;font-weight:bold;">
-  ▶ PLAY ARMSTRONG AUDIO
-</button>
+
 <div class="eyebrow"><span class="live-dot"></span> IEEE AESS YU  /  NASA SPACE APPS CHALLENGE</div><h1>ONE MAN'S<br><span>MISSION.</span><br>ONE CREW.<br>NO LIMITS.</h1><p>Explore the Moon's south pole. Compare candidate landing sites, understand solar illumination and Earth visibility, and make informed mission decisions.</p><div class="hero-actions"><button class="btn primary" onclick="go('control')">ENTER MISSION CONTROL ↗</button><button class="btn" id="audioBtn">♫ Play intro audio</button></div><p style="font-size:12px">Audio: add a licensed Armstrong recording as <code>assets/armstrong.mp3</code>. Playback requires a click.</p><audio id="introAudio" src="assets/armstrong.mp3"></audio></div></header><section class="section"><div class="eyebrow">THE PEOPLE BEHIND THE MISSION</div><h2>MEET THE CREW</h2><p class="lead">Six explorers. One mission. Representing IEEE Aerospace and Electronic Systems Society at Yarmouk University. BUILD / CONNECT / IMPACT.</p><div class="grid team" id="teamHome"></div><p class="crew-note">CREW PROFILES · Replace placeholders with your team names and roles</p></section><section class="section"><div class="panel"><div class="eyebrow">MISSION OBJECTIVE</div><h2>Explore. Evaluate. Decide.</h2><p class="lead">Our AESS lunar browser is a prototype mission-planning interface for comparing lunar south-pole sites. Simulation, real ephemeris calculations and AI integration can be connected as the project develops.</p><button class="btn primary" onclick="go('compare')">Explore comparison →</button></div></section></div>
 <section id="control" class="section workspace"><div class="eyebrow">LIVE WORKSPACE · PROTOTYPE</div><h2>Mission Control</h2><p class="lead">Choose a candidate site and inspect its location. The center panel is a visual placeholder for your CesiumJS simulation.</p><div class="dashboard"><div class="panel"><h3>⌖ Landing Site Intelligence</h3><div id="sites"></div><div id="siteDetails" class="muted" style="line-height:1.8;margin-top:20px"></div></div><div class="panel"><h3>◉ Lunar Simulation <span style="float:right;color:#70d6ac;font-size:12px">● DEMO MODE</span></h3><div id="cesiumContainer" class="sim"><div class="orbit"></div><div class="orb"></div><div class="pin">⌖</div><div class="status">SIMULATION SLOT · ADD YOUR CESIUM VIEW OR URL</div></div><div class="stats"><div class="stat">Selected site: <b id="selectedSite">Site Alpha</b></div><div class="stat">Solar status: <b>Awaiting data</b></div><div class="stat">DTE: <b>Awaiting data</b></div></div></div><div class="panel"><h3>✦ Mission Chat</h3><div class="chatlog" id="chatlog"><div class="bubble">Mission assistant demo ready. Ask about solar power, Earth visibility, or site selection.</div></div><div class="chatbox"><input id="chatInput" placeholder="Ask mission assistant..."><button onclick="chat()">➤</button></div><p class="muted" style="font-size:11px">Demo responses only — no AI model connected yet.</p></div></div></section>
 <section id="gallery" class="section workspace"><div class="eyebrow">LUNAR SURFACE EXPLORATION</div><h2>3D Landing Site Gallery</h2><p class="lead">Preview slots for your three selected sites. Replace these visuals with actual Cesium terrain views or GLB models.</p><div class="grid gallery" id="galleryCards"></div></section>
