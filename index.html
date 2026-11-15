@@ -46,7 +46,17 @@ th{background:#0c3444;color:#67f3e0}.footer{border-color:#17475b;letter-spacing:
 @media(prefers-reduced-motion:reduce){.starfield,.hero .moon,.hero-content,.member{animation:none!important}}
 
 .edit-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}#jsonEditor{width:100%;min-height:410px;padding:20px;border:1px solid #284d64;background:#03111d;color:#d8fffb;border-radius:12px;font:13px/1.5 Consolas,monospace;resize:vertical}.report-section{padding:14px 0;border-bottom:1px solid #1d3d50}.report-section p{white-space:pre-wrap;line-height:1.7}.scene model-viewer{display:block}.gallery-moon{font-size:100px;color:#58e6d4}#cesiumContainer iframe{display:block}.navlinks{flex-wrap:wrap}
-</style></head><body><nav><div class="brand" aria-label="IEEE AESS Yarmouk University"><img src="assets/aess-yu-logo.png" alt="AESS Yarmouk University logo" class="brand-logo"></div><div class="navlinks" id="navlinks"><button data-page="home" class="active">⌂ Home</button><button data-page="control">◉ Mission Control</button><button data-page="gallery">◈ 3D Gallery</button><button data-page="compare">▤ Comparison</button><button data-page="assistant">✦ AI Assistant</button><button data-page="report">▧ Report</button><button data-page="about">◎ About Us</button><button data-page="edit">✎ Edit Content</button></div></nav>
+</style></head>
+  <body>
+    <div id="missionIntro">
+  <h1>LUNAR MISSION</h1>
+  <p>ONE MAN'S MISSION. ONE CREW. NO LIMITS.</p>
+  <button id="enterMission" type="button">
+    ▶ ENTER MISSION
+  </button>
+</div>
+  <nav>
+  <div class="brand" aria-label="IEEE AESS Yarmouk University"><img src="assets/aess-yu-logo.png" alt="AESS Yarmouk University logo" class="brand-logo"></div><div class="navlinks" id="navlinks"><button data-page="home" class="active">⌂ Home</button><button data-page="control">◉ Mission Control</button><button data-page="gallery">◈ 3D Gallery</button><button data-page="compare">▤ Comparison</button><button data-page="assistant">✦ AI Assistant</button><button data-page="report">▧ Report</button><button data-page="about">◎ About Us</button><button data-page="edit">✎ Edit Content</button></div></nav>
 <main><div id="home" class="workspace active"><header class="hero"><div class="starfield" aria-hidden="true"></div><div class="moon"></div><div class="hero-content">
 
   onclick="document.getElementById('armstrongAudio').play()"
@@ -226,18 +236,6 @@ init();if(location.hash&&document.getElementById(location.hash.slice(1)))go(loca
 
 </style>
 
-<div id="missionIntro">
-  <h1>LUNAR MISSION</h1>
-  <p>
-  ONE MAN'S MISSION.
-  <span style="display:block">
-    ONE CREW. NO LIMITS.
-  </span>
-</p>
-  <button id="enterMission" type="button">
-    ▶ ENTER MISSION
-  </button>
-</div>
 
 <audio id="missionVoice" preload="auto">
   <source src="./armstrong.mp3" type="audio/mpeg">
