@@ -56,8 +56,6 @@ th{background:#0c3444;color:#67f3e0}.footer{border-color:#17475b;letter-spacing:
   style="background:#48E5D2;color:#020508;
   padding:14px 24px;border:0;border-radius:6px;
   cursor:pointer;font-weight:bold;">
-  ▶ PLAY ARMSTRONG AUDIO
-</button>
 
 
 
@@ -94,4 +92,60 @@ function chat(standalone=false){const inp=document.getElementById(standalone?'ch
 for(const id of ['chatInput','chatInput2'])document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')chat(id==='chatInput2')});
 document.getElementById('audioBtn').onclick=()=>{const a=document.getElementById('introAudio');a.play().catch(()=>alert('Add a licensed audio file at assets/armstrong.mp3.'))};
 init();if(location.hash&&document.getElementById(location.hash.slice(1)))go(location.hash.slice(1));
-</script></body></html>
+</script>
+  
+<style>
+  #missionIntro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #020810;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    text-align: center;
+    padding: 24px;
+  }
+
+  #missionIntro h1 {
+    color: #48E5D2;
+    font-size: clamp(36px, 7vw, 76px);
+    letter-spacing: 4px;
+  }
+
+  #enterMission {
+    background: #48E5D2;
+    color: #020810;
+    padding: 18px 40px;
+    border: none;
+    font-weight: 900;
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+</style>
+
+<div id="missionIntro">
+  <h1>LUNAR MISSION</h1>
+  <p>ONE MAN'S MISSION. ONE CREW. NO LIMITS.</p>
+  <button id="enterMission" type="button">
+    ▶ ENTER MISSION
+  </button>
+</div>
+
+<audio id="missionVoice" preload="auto">
+  <source src="./armstrong.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.getElementById("enterMission")
+    .addEventListener("click", function () {
+      const audio = document.getElementById("missionVoice");
+      audio.play().catch(console.error);
+      document.getElementById("missionIntro").remove();
+    });
+</script>
+
+</body>
+</html>
